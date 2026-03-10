@@ -9,7 +9,12 @@
 <header>
     <div class="header-container">
         <div class="logo">OS<span>Website</span></div>
-        <nav>
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
             <ul>
                 <li><a href="../../index.html">Home</a></li>
                 <li>
@@ -60,6 +65,25 @@
         </nav>
     </div>
 </header>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+</script>
 
 <main>
     <h1>Laboratory Activity - Lab 1</h1>

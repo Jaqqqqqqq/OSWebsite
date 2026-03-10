@@ -47,6 +47,37 @@ header {
     color: #ffb6d9;
 }
 
+/* Hamburger Menu Button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 10px 20px;
+    background: none;
+    border: none;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffb6d9;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
 /* Navigation */
 nav {
     width: 100%;
@@ -208,12 +239,70 @@ iframe {
 
     .logo {
         font-size: 14px;
+        width: 100%;
+        text-align: center;
+        padding: 15px 20px 10px 20px;
+    }
+
+    .hamburger {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+
+    nav {
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        border-top: 1px solid #111111;
+    }
+
+    nav.active {
+        max-height: 500px;
     }
 
     nav ul {
         flex-direction: column;
         gap: 0;
         width: 100%;
+        padding: 0;
+    }
+
+    nav > ul > li {
+        width: 100%;
+    }
+
+    nav a {
+        padding: 12px 20px;
+        border-bottom: none;
+        text-align: left;
+    }
+
+    nav a:hover {
+        background-color: #1a1a1a;
+        border-bottom: none;
+        border-left: 3px solid #ffb6d9;
+        padding-left: 17px;
+    }
+
+    nav ul ul {
+        position: static;
+        display: none;
+        background-color: #0a0a0a;
+        border: none;
+        border-left: 3px solid #ffb6d9;
+        box-shadow: none;
+        margin: 0;
+    }
+
+    nav li:hover > ul {
+        display: block;
+    }
+
+    nav ul ul li a {
+        padding: 10px 20px 10px 30px;
     }
 
     main {
